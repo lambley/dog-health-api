@@ -24,6 +24,7 @@ JSON.parse(res.body).each do |dog|
     height_imperial: dog['height']['imperial'],
     height_metric: dog['height']['metric'],
     bred_for: dog['bred_for'],
+    breed_group: dog['breed_group'],
     life_span: dog['life_span'],
     temperament: dog['temperament'],
     reference_image_id: dog['reference_image_id']
