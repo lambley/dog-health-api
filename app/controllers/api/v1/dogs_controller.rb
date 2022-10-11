@@ -2,7 +2,7 @@ class Api::V1::DogsController < ApplicationController
   # path http://localhost:3000/api/v1/dogs.json
   def index
     if params[:q].present?
-      @dogs = Dog.where('breed LIKE ?', "%#{params[:q]}%")
+      @dogs = Dog.where('lower(breed) LIKE ?', "%#{params[:q].downcase}%")
     else
       @dogs = Dog.all
     end
