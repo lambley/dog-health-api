@@ -1,6 +1,11 @@
 require 'faraday'
 require 'json'
 
+# clear all tables before seed
+[Dog].each do |table|
+  ActiveRecord::Base.connection.execute("TRUNCATE #{table.table_name} RESTART IDENTITY CASCADE")
+end
+
 url = 'https://api.thedogapi.com/v1/breeds/'
 
 conn = Faraday.new(
@@ -26,7 +31,7 @@ JSON.parse(res.body).each do |dog|
     bred_for: dog['bred_for'],
     breed_group: dog['breed_group'],
     life_span: dog['life_span'],
-    temperament: dog['temperament'],
+    temperament: dog['temperament']&.split(','),
     reference_image_id: dog['reference_image_id']
   )
   p dog_seed.breed if dog_seed.persisted?
