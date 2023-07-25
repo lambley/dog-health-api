@@ -23,6 +23,10 @@ dog-health-app
 |       | Dog.tsx
 └───...
 ```
+
+#### Database setup
+- create user `postgres` and grant superuser access
+- run `rails db:setup` (or `rails db:create`, `rails db:migrate`, and `rails db:seed`)
 ### Backend
 - `rails new api-client --api` to create app with api gems like `cors` inbuilt
 - amend cors policy in `config/initializers/cors.rb` to accept any cross-origin traffic:
@@ -50,7 +54,7 @@ render json: @dogs
     end
   end
 ```
-- seed database from [The Dog API](https://thedogapi.com/) 
+- seed database from [The Dog API](https://thedogapi.com/)
 
 ### Frontend
 - create app using `npx create-react-app front-end --template typescript`
@@ -84,5 +88,3 @@ end
 - after finding the breed, select breed to see a form where user can add their dog's weight
 - after ideal dog's weight found, if too heavy: display tips for helping dog lose weight; if too low: display tips for gaining weight
 - add tab to search by "breed group" e.g. Toy and find dog there
-
-
