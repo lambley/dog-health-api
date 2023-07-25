@@ -8,6 +8,7 @@ gem "rails", "~> 7.0.4"
 
 # Use Postgres as the database for Active Record
 gem 'pg'
+gem 'pg_search'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
